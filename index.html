@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+*{
+	font-family: fantasy;
+	font-size: 50px;
+}	
+
+#calculator {
+    width: 350px;
+	height: auto;
+	margin: 150px auto;
+	padding: 40px 70px 50px;
+	background: #9dd2ea;
+	background: linear-gradient(#fff1f7, #fd8ab6);
+	border-radius: 12px;
+	box-shadow: 0px 15px #f3307b, 0px 100px 150px rgba(0, 0, 0, 0.2);
+	background-position: center;
+}
+
+p {
+	height: 80px;
+	width: 280px;
+	position: center;
+	padding: 2px 35px;
+	padding-top: 18px;
+	background: rgba(0, 0, 0, 0.2);
+	text-align: right;
+	border-radius: 10px;
+	box-shadow: inset 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+table{
+	color : rgb(252, 0, 105);
+	width:345px;
+	height:350px;
+	border:5px;
+	text-align: center;
+}
+
+body{
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+	 background-position:center;
+	 background-image:url(567.jpg);
+}
+.keys{
+	 cursor: pointer;
+	 background:  rgba(172, 252, 248, 0.2);
+     border-radius: 10px;
+	 box-shadow: 0px 4px rgba(133, 133, 133, 0.5);
+	 width:345px;
+	 height:350px;
+	 position: center;
+}
+
+.keys:hover {
+    background-color: #ffd3d7;
+}
+
+.clean{
+	background: #ff9fa8;
+	border-radius: 5px;
+	padding: 0px;
+	color: white;
+}
+
+.clean:hover {
+    background-color:#9c89f6;
+}
+
+
+
+</style>
+</head>
+
+
+<body>
+	<div id="calculator">
+	   <p id="input">0</p>
+       <div class="keys">
+	<table>
+	<tr>
+		<td class="clean">C</td>
+		<td class="clean">/</td>
+		<td class="clean">*</td>
+		<td class="clean">-</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>8</td>
+		<td>9</td>
+		<td rowspan="2">+</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td rowspan="2">=</td>
+	</tr>
+	<tr>
+		<td colspan="2">0</td>
+		<td>.</td>
+	</tr>
+</table>
+</div>
+</div>
+
+
+
+<script>
+	const input = document.getElementById("input");
+	const td = document.getElementsByTagName("td");
+	for(let i=0;i<td.length;i++){
+		td[i].onclick = function(){
+			console.log( this.innerText );
+			if( this.innerText == "C" )			input.innerText = "0";
+			else if( this.innerText == "=" )	input.innerText = eval(input.innerText);
+			else{
+				if(input.innerText == "0")	input.innerText = this.innerText;
+				else	input.insertAdjacentHTML("beforeend", this.innerText);
+			}
+		}
+	}
+</script>
+
+</body>
+</html>
